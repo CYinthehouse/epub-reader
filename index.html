@@ -1,1 +1,36 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korean EPUB Viewer</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #viewer {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="viewer"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var book = ePub("https://cdn.shopify.com/s/files/1/0674/6747/7282/files/101_ko-kr_1.epub?v=1751069585");
+            var rendition = book.renderTo("viewer", {
+                width: "100%",
+                height: "100%"
+            });
+            rendition.display();
+        });
+    </script>
+</body>
+</html>
